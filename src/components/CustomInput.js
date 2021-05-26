@@ -1,0 +1,32 @@
+import React from 'react';
+import {StyleSheet, Text, View, TextInput} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const CustomInput = props => {
+  const {icon, secureTextEntry} = props;
+  return (
+    <View style={styles.container}>
+      <TextInput style={styles.input} secureTextEntry={secureTextEntry} />
+      <Icon name={icon} size={20} color="black" style={styles.iconStyle} />
+    </View>
+  );
+};
+
+export default CustomInput;
+
+const styles = StyleSheet.create({
+  container: {
+    borderBottomColor: '#E5E5E5',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconStyle: {
+    padding: 5,
+  },
+  input: {
+    flex: 1,
+    fontFamily: 'Nunito-Light',
+  },
+});
