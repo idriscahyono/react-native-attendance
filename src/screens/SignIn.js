@@ -1,10 +1,16 @@
 import {Button} from '@ui-kitten/components';
 import React from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import {FacebookIcon, GoogleIcon, TwitterIcon} from '../assets/icons';
 import CustomInput from '../components/CustomInput';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -21,13 +27,15 @@ const SignIn = () => {
         <Text style={styles.textHeaderInput}>Password</Text>
         <CustomInput secureTextEntry={true} icon="eye-outline" />
       </View>
-      <View style={styles.space(70)} />
-      <Button style={styles.button}>Sign In</Button>
-      <View style={styles.space(120)} />
-      <Text style={{fontFamily: 'Nunito-ExtraLight', fontSize: 15}}>
+      <Button
+        style={styles.button}
+        onPress={() => navigation.navigate('Dashboard')}>
+        Sign In
+      </Button>
+      <Text
+        style={{fontFamily: 'Nunito-ExtraLight', fontSize: 15, marginTop: 32}}>
         or use one of your social profiles
       </Text>
-      <View style={styles.space(30)} />
       <View style={styles.containerIcon}>
         <View
           style={{
@@ -43,14 +51,15 @@ const SignIn = () => {
           <TwitterIcon width={24} height={24} />
         </View>
       </View>
-      <View style={styles.space(30)} />
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row', marginTop: 40}}>
         <Text style={{fontFamily: 'Nunito-Regular', right: 8}}>
           Don't Have an Account?
         </Text>
-        <Text style={{fontFamily: 'Nunito-Regular', color: '#FFB951'}}>
-          SignUp
-        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <Text style={{fontFamily: 'Nunito-Regular', color: '#FFB951'}}>
+            SignUp
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
   },
   containerInput: {
     width: '82%',
-    top: 76,
+    marginTop: 76,
   },
   input: {
     backgroundColor: '#FFFFFF',
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
     color: '#FFB951',
   },
   button: {
-    top: 85,
+    marginTop: 80,
     width: '72%',
     backgroundColor: '#003F5A',
     borderColor: 'transparent',
@@ -90,6 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '45%',
     justifyContent: 'space-between',
+    marginTop: 31,
   },
   borderIcon: {
     borderRadius: 50,

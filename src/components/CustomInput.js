@@ -1,12 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const CustomInput = props => {
-  const {icon, secureTextEntry} = props;
+  const {icon, secureTextEntry, inputStyle} = props;
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} secureTextEntry={secureTextEntry} />
+      <TextInput
+        style={{...styles.input, ...inputStyle}}
+        secureTextEntry={secureTextEntry}
+      />
       <Icon name={icon} size={20} color="black" style={styles.iconStyle} />
     </View>
   );
@@ -28,5 +31,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontFamily: 'Nunito-Light',
+    maxHeight: 41,
+    fontSize: 18,
   },
 });
