@@ -8,6 +8,7 @@ import AbsensiLogIcon from './absensi-log.svg';
 import OvertimeInIcon from './overtime-in.svg';
 import OvertimeOutIcon from './overtime-out.svg';
 import MoreIcon from './more.svg';
+import BackIcon from './back.svg';
 
 export {
   GoogleIcon,
@@ -20,4 +21,5 @@ export {
   OvertimeInIcon,
   OvertimeOutIcon,
   MoreIcon,
+  BackIcon,
 };

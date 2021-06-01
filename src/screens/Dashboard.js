@@ -6,6 +6,7 @@ import {
   StatusBar,
   Image,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import ImageProfile from '../assets/images/profile.jpg';
 import CustomMenu from '../components/CustomMenu';
@@ -19,7 +20,7 @@ import {
   MoreIcon,
 } from '../assets/icons';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#003F5A" barStyle="light-content" />
@@ -57,10 +58,12 @@ const Dashboard = () => {
                 Idris Cahyono
               </Text>
             </View>
-            <Image
-              source={ImageProfile}
-              style={{width: 60, height: 60, borderRadius: 50}}
-            />
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+              <Image
+                source={ImageProfile}
+                style={{width: 60, height: 60, borderRadius: 50}}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
